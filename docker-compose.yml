@@ -1,0 +1,23 @@
+---
+version: '2'
+services:
+  mysql:
+    image: mysql
+    restart: always
+    ports:
+      - 3307:3306
+    hostname: bankymono_mysql
+    container_name: bankymono_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "Password12"
+      MYSQL_DATABASE: "spring"
+      MYSQL_USER: "bankymono"
+      MYSQL_PASSWORD: "Password12"
+    volumes:
+      - bankymono_mysql_data:/var/lib/mysql
+      - bankymono_mysql_config:/etc/mysql/conf.d
+
+volumes:
+  bankymono_mysql_data:
+  bankymono_mysql_config:
+    driver: local
